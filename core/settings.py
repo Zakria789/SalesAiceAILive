@@ -407,15 +407,8 @@ else:
     CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript access if needed
     CSRF_USE_SESSIONS = False     # Don't require sessions for CSRF
 
-# Auto-create admin user in production
-if RAILWAY_ENVIRONMENT == 'production':
-    try:
-        from create_admin_auto import create_admin_if_not_exists
-        import threading
-        # Run admin creation in background thread to avoid blocking startup
-        threading.Thread(target=create_admin_if_not_exists, daemon=True).start()
-    except Exception as e:
-        print(f"⚠️ Admin auto-creation failed: {e}")
+# Auto-create admin user in production (on first run only)
+# Note: Use 'python manage.py createadmin' command instead for better control
 #     TWILIO_ACCOUNT_SID=your_account_sid_here
 # TWILIO_AUTH_TOKEN=your_auth_token_here
 # TWILIO_PHONE_NUMBER = "+1234567890"

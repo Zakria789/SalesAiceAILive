@@ -5,12 +5,13 @@ This script runs automatically when Django starts and creates admin if not exist
 
 import os
 import django
-from django.core.management.base import BaseCommand
-from django.contrib.auth import get_user_model
 
 def create_admin_if_not_exists():
     """Auto-create admin user on Railway startup"""
     try:
+        # Import after Django setup
+        from django.contrib.auth import get_user_model
+        
         User = get_user_model()
         
         # Get admin credentials from environment
