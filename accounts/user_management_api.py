@@ -18,7 +18,7 @@ class UserManagementAPIView(APIView):
     User Management API - Complete user data with statistics
     Returns data matching TypeScript User and UsersData interfaces
     """
-    permission_classes = [IsAdmin]
+    permission_classes = [permissions.AllowAny]  # Changed from IsAdmin to AllowAny
     
     @swagger_auto_schema(
         tags=['Admin - User Management'],
@@ -162,7 +162,7 @@ class UserManagementAPIView(APIView):
     @swagger_auto_schema(
         tags=['Admin - User Management'],
         operation_summary="Update User Status",
-        operation_description="Update user status (activate/ban) or role",
+        operation_description="Update user status (activate/ban) or role - PUBLIC ACCESS (No authentication required)",
         request_body=openapi.Schema(
             type=openapi.TYPE_OBJECT,
             required=['user_id', 'action'],
@@ -183,8 +183,7 @@ class UserManagementAPIView(APIView):
         responses={
             200: "User updated successfully",
             400: "Bad request",
-            404: "User not found",
-            403: "Forbidden - Admin access required"
+            404: "User not found"
         }
     )
     def post(self, request):

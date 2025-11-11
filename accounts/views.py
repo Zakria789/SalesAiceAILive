@@ -52,7 +52,7 @@ def current_user(request):
 
 @swagger_auto_schema(
     method='post',
-    operation_description="Change user role (Admin only)",
+    operation_description="Change user role - PUBLIC ACCESS (No authentication required)",
     request_body=openapi.Schema(
         type=openapi.TYPE_OBJECT,
         required=['user_id', 'role'],
@@ -64,9 +64,9 @@ def current_user(request):
     responses={200: "Role changed successfully"}
 )
 @api_view(['POST'])
-@permission_classes([IsAdmin])
+@permission_classes([permissions.AllowAny])  # Changed from IsAdmin to AllowAny
 def change_user_role(request):
-    """Change user role (Admin only)"""
+    """Change user role - PUBLIC ACCESS (No authentication required)"""
     user_id = request.data.get('user_id')
     new_role = request.data.get('role')
     
