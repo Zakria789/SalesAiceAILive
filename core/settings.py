@@ -283,6 +283,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:8080",
     "http://127.0.0.1:8000",  # For Swagger UI
+    "https://sales-aice-ai.vercel.app",
+    "https://www.sales-aice-ai.vercel.app",
 ]
 
 # Celery Configuration - Use database instead of Redis
@@ -356,7 +358,7 @@ STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY', default='sk_test_placeholder')
 STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET', default='whsec_placeholder')
 
 # Frontend URL for redirects
-FRONTEND_URL = config('FRONTEND_URL', default='http://localhost:3000')
+FRONTEND_URL = config('FRONTEND_URL', default='https://sales-aice-ai.vercel.app')
 
 # Stripe Settings
 STRIPE_LIVE_MODE = config('STRIPE_LIVE_MODE', default=False, cast=bool)
