@@ -6,6 +6,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from .custom_schema_generator import CustomSchemaGenerator
+from .health import health_check, root_handler
 
 # API Documentation with JWT Bearer Authentication
 schema_view = get_schema_view(
@@ -24,6 +25,10 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    # Root and Health Check
+    path('', root_handler, name='root'),
+    path('health/', health_check, name='health-check'),
+    
     # Admin
     path('admin/', admin.site.urls),
     

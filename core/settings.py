@@ -37,8 +37,8 @@ if RAILWAY_ENVIRONMENT == 'production':
 else:
     ALLOWED_HOSTS = config(
         'ALLOWED_HOSTS',
-        default='localhost,127.0.0.1,testserver,aicegroup.pythonanywhere.com,salesaice.pythonanywhere.com,salesaice.ai'
-    ).split(',') + ['testserver', 'aicegroup.pythonanywhere.com']  # Add for testing
+        default='localhost,127.0.0.1,testserver,aicegroup.pythonanywhere.com,salesaice.pythonanywhere.com,salesaice.ai,salesaiceailive-production-de273370.up.railway.app'
+    ).split(',') + ['testserver', 'aicegroup.pythonanywhere.com', 'salesaiceailive-production-de273370.up.railway.app']  # Add for testing
 
 CORS_ALLOW_CREDENTIALS = True
 
