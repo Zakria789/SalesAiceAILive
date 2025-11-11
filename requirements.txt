@@ -17,7 +17,7 @@ djangorestframework-simplejwt==5.3.0
 cryptography==43.0.3
 
 # API & WebSocket
-hume==0.6.1
+hume==0.13.4
 websockets==13.1
 aiohttp==3.10.11
 requests==2.32.5
