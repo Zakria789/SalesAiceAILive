@@ -29,6 +29,7 @@ twilio==8.10.3
 
 # Background Tasks & Caching
 celery==5.3.4
+django-celery-beat==2.6.0
 redis==5.0.7
 django-redis==5.4.0
 
