@@ -326,7 +326,7 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 # HumeAI Configuration
-HUME_AI_API_KEY = config('HUME_API_KEY')  # Required - must be in .env
+HUME_AI_API_KEY = config('HUME_API_KEY', default='')  # Optional - will be set in Railway environment
 HUME_AI_BASE_URL = config('HUME_AI_BASE_URL', default='https://api.hume.ai/v0')
 HUME_AI_MODEL = config('HUME_AI_MODEL', default='evi-2')
 HUME_AI_EVI_CONFIG_ID = config('HUME_CONFIG_ID', default='13624648-658a-49b1-81cb-a0f2e2b05de5')
