@@ -196,7 +196,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',  # Allow public access by default
     ],
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
@@ -245,13 +245,18 @@ SWAGGER_SETTINGS = {
 }
 
 # Email Configuration
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')
-EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+if RAILWAY_ENVIRONMENT == 'production':
+    # Disable email in production to prevent network errors
+    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')
+    EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
+    EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+    EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+
+DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER', default='noreply@salesai.com')
 
 # Allauth Configuration
 SITE_ID = 1
@@ -401,6 +406,16 @@ else:
     # Additional CSRF exemptions for webhooks
     CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript access if needed
     CSRF_USE_SESSIONS = False     # Don't require sessions for CSRF
+
+# Auto-create admin user in production
+if RAILWAY_ENVIRONMENT == 'production':
+    try:
+        from create_admin_auto import create_admin_if_not_exists
+        import threading
+        # Run admin creation in background thread to avoid blocking startup
+        threading.Thread(target=create_admin_if_not_exists, daemon=True).start()
+    except Exception as e:
+        print(f"⚠️ Admin auto-creation failed: {e}")
 #     TWILIO_ACCOUNT_SID=your_account_sid_here
 # TWILIO_AUTH_TOKEN=your_auth_token_here
 # TWILIO_PHONE_NUMBER = "+1234567890"
