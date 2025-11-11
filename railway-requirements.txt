@@ -1,0 +1,68 @@
+# Railway-specific requirements (Linux compatible)
+# Core Django packages
+Django==5.1.5
+djangorestframework==3.15.2
+django-cors-headers==4.6.0
+daphne==4.2.0
+channels==4.2.0
+channels-redis==5.0.0
+
+# Database
+psycopg2-binary==2.9.9
+dj-database-url==2.1.0
+
+# Authentication & Security
+django-allauth==0.67.1
+djangorestframework-simplejwt==5.3.0
+cryptography==43.0.3
+
+# API & WebSocket
+hume-ai==0.6.0
+websockets==13.2
+aiohttp==3.10.11
+requests==2.32.5
+
+# Voice & Telephony
+vonage==3.99.2
+# Note: Twilio SDK is cross-platform compatible
+twilio==9.3.8
+
+# Background Tasks & Caching
+celery==5.5.3
+redis==5.1.1
+django-redis==5.6.0
+
+# File Handling
+Pillow==11.0.0
+
+# Utilities
+python-dotenv==1.1.1
+python-decouple==3.8
+colorama==0.4.6
+pytz==2025.2
+
+# HTTP & Async
+httpx==0.28.1
+anyio==4.7.0
+aiofiles==24.1.0
+
+# Data Processing
+pandas==2.2.3
+numpy==2.2.1
+
+# Email
+django-ses==4.2.0
+
+# Storage
+boto3==1.35.80
+django-storages==1.14.2
+
+# Performance
+whitenoise==6.8.2
+
+# Monitoring
+sentry-sdk==2.20.0
+
+# Additional utilities
+PyYAML==6.0.3
+jsonschema==4.23.0
