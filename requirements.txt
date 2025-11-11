@@ -23,7 +23,7 @@ aiohttp==3.10.11
 requests==2.32.5
 
 # Voice & Telephony
-vonage==3.99.2
+vonage==4.7.2
 # Note: Twilio SDK is cross-platform compatible
 twilio==9.3.8
 
