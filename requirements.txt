@@ -69,8 +69,10 @@ whitenoise==6.6.0
 # Monitoring
 sentry-sdk==2.8.0
 
-# Vector database
+# Vector database and document processing
 chromadb==0.4.24
+PyPDF2==3.0.1
+python-docx==1.1.0
 
 # Additional utilities
 PyYAML==6.0.1
