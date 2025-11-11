@@ -69,6 +69,9 @@ whitenoise==6.6.0
 # Monitoring
 sentry-sdk==2.8.0
 
+# Vector database
+chromadb==0.4.24
+
 # Additional utilities
 PyYAML==6.0.1
 jsonschema==4.19.2
