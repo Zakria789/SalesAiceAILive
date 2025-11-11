@@ -1,26 +1,116 @@
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-venv/
+# Python cache and compiled files__pycache__/
+
+__pycache__/*.py[cod]
+
+*.py[cod]*$py.class
+
+*$py.class*.so
+
+*.so.Python
+
+.Pythonvenv/
+
 env/
-ENV/
-.venv
-node_modules/
-db.sqlite3
-*.log
+
+# Virtual environmentsENV/
+
+venv/.venv
+
+env/node_modules/
+
+ENV/db.sqlite3
+
+.venv*.log
+
 .env.local
-.DS_Store
-*.pyc
-staticfiles/
+
+# Node.js.DS_Store
+
+node_modules/*.pyc
+
+.next/staticfiles/
+
 media/
+
+# Database files.git/
+
+db.sqlite3.gitignore
+
+*.sqlite3README.md
+
+*.db*.md
+
+agent_training_database.json.vscode/
+
+.idea/
+
+# Log filesagent_training_database.json
+
+*.log*.sqlite3
+
+server.log*.db
+
+
+# Environment files
+.env
+.env.*
+
+# Static files (generated during build)
+staticfiles/
+static/
+media/
+
+# Version control
 .git/
 .gitignore
+
+# Documentation
 README.md
 *.md
+RAILWAY_*.md
+SETUP_*.md
+SYSTEM_*.md
+*_GUIDE.md
+*_COMPLETE.md
+*_SUMMARY.md
+*_ANALYSIS.md
+TROUBLESHOOTING.md
+USER_*.md
+VOICE_*.md
+VONAGE_*.md
+TWILIO_*.md
+STRIPE_*.md
+
+# IDE files
 .vscode/
 .idea/
-agent_training_database.json
-*.sqlite3
-*.db
+.DS_Store
+
+# Test files
+test_*.py
+TEST_*.py
+test_*.sh
+test_*.ps1
+*.test.py
+
+# Archive files
+*.rar
+*.zip
+*.tar.gz
+
+# Large directories that aren't needed for deployment
+scripts/
+TESTREPO/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Development files
+*.pdf
+*.csv
