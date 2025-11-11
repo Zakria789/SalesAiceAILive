@@ -1,0 +1,75 @@
+═══════════════════════════════════════════════════════════════
+🎯 HUMEAI CONFIG UPDATE INSTRUCTIONS
+═══════════════════════════════════════════════════════════════
+
+📋 STEPS:
+
+1️⃣  Open Browser → Go to: https://platform.hume.ai/
+
+2️⃣  Login with your HumeAI account
+
+3️⃣  Click "EVI Configs" or "Configs" in left sidebar
+
+4️⃣  Find config ID: 04d4ea50-ee37-4c18-aa89-fb20259d9596
+    (Search or scroll to find it)
+
+5️⃣  Click "Edit" or "⋯" menu → "Edit Config"
+
+6️⃣  Scroll to "System Prompt" or "Instructions" section
+
+7️⃣  DELETE old prompt completely
+
+8️⃣  COPY entire content from: HUME_CONFIG_SYSTEM_PROMPT.txt
+    (This file - open in Notepad and Ctrl+A, Ctrl+C)
+
+9️⃣  PASTE into System Prompt field
+
+🔟  Click "Save" or "Update Config" button
+
+✅  Done! No server restart needed.
+
+═══════════════════════════════════════════════════════════════
+🎯 WHAT THIS PROMPT DOES:
+═══════════════════════════════════════════════════════════════
+
+✅ Uses your EXACT sales script (SalesAice.ai)
+✅ Greeting: "Hello! This is [Name] calling from SalesAice.ai..."
+✅ Value prop: "automates repetitive sales tasks..."
+✅ Engagement: "Would you like a short demo?"
+✅ Answers 4 common questions with exact wording
+✅ Max 2 sentences per response
+✅ No filler words or casual language
+✅ Professional and concise
+
+═══════════════════════════════════════════════════════════════
+🧪 TEST AFTER UPDATE:
+═══════════════════════════════════════════════════════════════
+
+Run test call:
+```powershell
+$headers = @{'Content-Type'='application/json'; 'ngrok-skip-browser-warning'='true'}
+$body = @{phone_no='+923403471112'; agent_id='1'} | ConvertTo-Json
+Invoke-RestMethod -Uri 'https://uncontortioned-na-ponderously.ngrok-free.dev/api/hume-twilio/initiate-call/' -Method POST -Headers $headers -Body $body
+```
+
+Expected behavior:
+✅ Agent: "Hello! This is calling from SalesAice.ai — we help businesses..."
+✅ Max 2 sentences per response
+✅ Uses exact script wording
+✅ Answers questions correctly
+✅ No "hey there" or casual language
+
+═══════════════════════════════════════════════════════════════
+⚠️  IMPORTANT NOTES:
+═══════════════════════════════════════════════════════════════
+
+• This config is shared by ALL 3 agents currently
+• If you want different scripts per agent, we need to:
+  1. Create 3 separate configs in HumeAI
+  2. Update database with different config IDs
+  
+• Changes take effect IMMEDIATELY (no restart needed)
+• Old calls in progress won't be affected
+• New calls will use updated prompt right away
+
+═══════════════════════════════════════════════════════════════

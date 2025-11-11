@@ -1,0 +1,17 @@
+[
+  {
+    "action": "talk",
+    "text": "Connecting you to our AI assistant.",
+    "bargeIn": true
+  },
+  {
+    "action": "stream",
+    "streamUrl": [
+      "wss://uncontortioned-na-ponderously.ngrok-free.dev/api/vonage-stream/TEST-UUID-123/"
+    ],
+    "eventUrl": [
+      "https://uncontortioned-na-ponderously.ngrok-free.dev/api/hume-twilio/vonage-event-callback/"
+    ],
+    "eventMethod": "POST"
+  }
+]

@@ -1,0 +1,40 @@
+# ✅ QUICK FIX - Daphne Restart Required
+
+## Problem
+`ImportError: cannot import name 'HumeAgentViewSet'`
+
+## Solution Applied
+✅ Updated `HumeAiTwilio/views/__init__.py` with proper imports
+
+## Next Step: RESTART DAPHNE
+
+### Option 1: Stop & Restart
+1. Go to Daphne terminal
+2. Press `Ctrl + C`
+3. Run: `daphne -p 8002 core.asgi:application`
+
+### Option 2: New Terminal
+```bash
+.\venv\Scripts\activate
+daphne -p 8002 core.asgi:application
+```
+
+## After Restart
+
+Test API:
+```bash
+python test_agent_apis.py
+# Choose option 2 (Update Existing Agent)
+```
+
+## Expected Result
+✅ No import errors
+✅ API returns 200 OK
+✅ Prompt updated on HumeAI
+✅ Saved to local database
+
+---
+
+**Status:** 🔧 RESTART REQUIRED
+**Port:** 8002
+**Command:** `daphne -p 8002 core.asgi:application`

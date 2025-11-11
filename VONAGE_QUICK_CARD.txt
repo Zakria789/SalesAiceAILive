@@ -1,0 +1,76 @@
+# VONAGE SETUP - QUICK REFERENCE CARD
+
+## YOUR CREDENTIALS
+
+```
+API Key:        bab7bfbe
+API Secret:     xeX*cW3^KA0LcQf!CB^Sl$
+Phone Number:   +15618367253
+ngrok URL:      https://uncontortioned-na-ponderously.ngrok-free.dev
+```
+
+---
+
+## COPY-PASTE THESE URLS INTO VONAGE DASHBOARD
+
+### Event Webhook URL:
+```
+https://uncontortioned-na-ponderously.ngrok-free.dev/api/hume-twilio/vonage-event-callback/
+```
+
+### Answer Webhook URL:
+```
+https://uncontortioned-na-ponderously.ngrok-free.dev/api/hume-twilio/vonage-voice-webhook/
+```
+
+---
+
+## VONAGE DASHBOARD STEPS
+
+1. Go to: https://dashboard.vonage.com/
+2. Click: Voice (left menu)
+3. Scroll: Down
+4. Click: Settings
+5. Find: Event Webhook URL field
+6. Paste: First URL above
+7. Set: Method = POST
+8. Find: Answer Webhook URL field
+9. Paste: Second URL above
+10. Set: Method = POST
+11. Click: SAVE ✅
+
+---
+
+## API KEY & SECRET
+
+**Location in Dashboard**: Account → Settings → API Credentials
+
+**Current in .env**:
+- API Key: `bab7bfbe`
+- API Secret: `xeX*cW3^KA0LcQf!CB^Sl$`
+
+**These are for YOUR CODE (not Dashboard)**
+
+---
+
+## ⚠️ IMPORTANT
+
+1. ngrok URL changes daily when restarted
+2. When it changes, update Vonage Dashboard
+3. API key/secret don't need to be added to Dashboard
+4. They're already in your .env file
+5. Always use POST method
+6. Always use HTTPS
+
+---
+
+## TEST AFTER SETUP
+
+1. Make test call from your code
+2. Check Vonage Dashboard Logs
+3. Verify webhooks were called
+4. Check Django logs for incoming webhooks
+
+---
+
+**Status**: Ready to add to Vonage! 🚀
